@@ -28,7 +28,9 @@ public class CategoriaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-
+    [HttpGet]
+    [Route("listar/status/{concluidas:float}")]
+    
     [HttpPost]
     [Route("cadastrar")]
     public IActionResult Cadastrar([FromBody] Categoria categoria)
@@ -44,4 +46,19 @@ public class CategoriaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpPatch]
+    [Route("alterar/{id}")]
+        public IActionResult Alterar([FromRoute] int id, Categoria categoria)
+        {
+            try
+            {
+                _context.Categorias.Update(categoria);
+                _context.SaveChanges();
+                return Ok(categoria);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
 }

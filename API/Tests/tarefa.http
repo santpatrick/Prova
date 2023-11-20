@@ -10,6 +10,13 @@ Content-Type: application/json
 {
   "Titulo": "Compras no Supermercado",
   "Descricao": "1. Fazer lista de compras: pão, leite, ovos, frutas, vegetais",
-  "CategoriaId": 4
+  "CategoriaId": 8
 }
+###Patch
+PATCH {{base_url}}/alterar/3
+Content-Type: application/json
+
+###GET
+GET {{base_url}}/listar/status/
+[Route("listar/status/{status : string}}")]
 

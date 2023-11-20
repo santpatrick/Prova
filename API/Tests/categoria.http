@@ -8,5 +8,13 @@ POST {{base_url}}/cadastrar
 Content-Type: application/json
 
 {
-    "nome": "Mercado"
+    "nome": "romopolis"
+}
+
+###Patch
+PATCH {{base_url}}/alterar/7
+Content-Type: application/json
+
+{
+    "nome": "arrozdoce"
 }

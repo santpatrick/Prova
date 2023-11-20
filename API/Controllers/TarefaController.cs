@@ -29,7 +29,7 @@ public class TarefaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-
+    
     // POST: api/tarefa/cadastrar
     [HttpPost]
     [Route("cadastrar")]
@@ -52,4 +52,19 @@ public class TarefaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpPatch]
+    [Route("alterar/{id}")]
+        public IActionResult Alterar([FromRoute] int id, Tarefa tarefa)
+        {
+            try
+            {
+                _context.Tarefas.Update(tarefa);
+                _context.SaveChanges();
+                return Ok(tarefa);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
 }
